@@ -34,9 +34,7 @@ jobs:
           file: Dockerfile
           platforms: linux/amd64,linux/arm64
           build-args: |
-            - AWS_ACCESS_KEY_ID: |
-                ${{ secrets.AWS_ACCESS_KEY_ID }}
-            - AWS_SECRET_ACCESS_KEY: |
-                ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}
+            AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}
           push: true
           tags: ${{ secrets.DOCKER_CONTAINER_REGISTRY }}/${{ secrets.DOCKER_REPOSITORY_NAME }}:v2.x
